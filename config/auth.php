@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'cust',
         ],
+        
+        'emp' => [
+            'driver' => 'session',
+            'provider' => 'emp'
+        ],
 
         'api' => [
             'driver' => 'jwt',
@@ -70,6 +75,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\SylCust::class,
         ],
+
+        'emp'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\AbsherSubEmp::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

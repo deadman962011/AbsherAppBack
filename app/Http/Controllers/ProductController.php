@@ -17,7 +17,7 @@ class ProductController extends Controller
 
             'ProdNameI'=>'required',
             'ProdCatI'=>'required',
-            'ProdDesc'=>'required',
+            'ProdDescI'=>'required',
             'ProdPriceI'=>'required'
         ]);
 

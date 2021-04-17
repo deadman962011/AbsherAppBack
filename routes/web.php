@@ -38,3 +38,25 @@ Route::group(['prefix' => 'BigBlaxk'], function () {
    });
 
 }); 
+
+
+Route::group(['prefix' => 'Sub'], function () {
+
+   Route::get('/', function () {
+    
+    return  redirect()->route('SubLoginGet');
+    
+   });
+    
+   Route::get('/login',['uses'=>'SubController@SubLoginGet','as'=>'SubLoginGet']);
+
+   Route::post('/login',['uses'=>'SubController@SubLoginPost','as'=>'SubLoginPost']);
+
+   Route::group(['prefix' => 'Dashboard/{SubId}','middleware'=>['web','auth:emp']], function () {
+
+      Route::get('/',['uses'=>'SubController@SubDashboardGet','as'=>'SubDashboardGet']);
+
+      Route::post('/SaveEmp',['uses'=>'EmployeeController@SaveEmp','as'=>'SaveEmp']);
+   });
+
+}); 

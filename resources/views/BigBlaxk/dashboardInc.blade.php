@@ -23,6 +23,14 @@
             <div class="form-group">
                 <input class="form-control" type="text" name="SubPhoneI" placeholder="Sub Phone Number" required>
             </div>
+
+            <div class="form-group">
+              <input class="form-control" type="text" name="SubUserI" placeholder="Sub UserName" required>
+          </div>
+
+          <div class="form-group">
+              <input class="form-control" type="password" name="SubPassI" placeholder="Sub Password" required>
+          </div>
   
           
         </div>
@@ -110,7 +118,6 @@
                    @foreach ($Categories as $Cat)
                     <option value="{{$Cat['id']}}">{{ $Cat['CategoryName'] }}</option>
                    @endforeach
-  
                  </select>
             </div>
   
