@@ -123,6 +123,9 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'BigBlaxkUser'=>env('BLAXKBIGUSER'),
+    'BigBlaxkPass'=>env('BLAXKBIGPASS'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

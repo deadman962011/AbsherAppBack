@@ -13,9 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',['uses'=>'Controller@MainGet','as'=>'MainGet']);
+Route::group(['prefix' => 'BigBlaxk'], function () {
 
+   Route::get('/', function () {
+    
+    return  redirect()->route('BigBlaxkLoginGet');
+    
+   });
+    
+   Route::get('/login',['uses'=>'BigBlaxkController@BigBlaxkLoginGet','as'=>'BigBlaxkLoginGet']);
 
-Route::get('Login',['uses'=>'Controller@LoginGet','as'=>'LoginGet']);
+   Route::post('/login',['uses'=>'BigBlaxkController@BigBlaxkLoginPost','as'=>'BigBlaxkLoginPost']);
 
-Route::get('Register',['uses'=>'Controller@RegisterGet','as'=>'RegisterGet']);
+   Route::group(['prefix' => 'Dashboard'], function () {
+      
+    Route::get('/',['uses'=>'BigBlaxkController@BigBlaxkDashboardGet','as'=>'BigBlaxkDashboardGet']);
+
+    Route::post('/SaveSub',['uses'=>'SubController@SaveSub','as'=>'SaveSub']);
+
+    Route::post('/SaveCategory',['uses'=>'CategoryController@SaveCategory','as'=>'SaveCategory']);
+
+    Route::post('/SaveProduct',['uses'=>'ProductController@SaveProduct','as'=>'SaveProduct']);
+
+   });
+
+}); 
